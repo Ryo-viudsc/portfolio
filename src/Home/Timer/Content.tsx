@@ -213,11 +213,33 @@ export default ({
                     marginVertical: 20 }}>
           Timer Setting
         </Text>
+            
+
+
         </ActionSheet>
 
     </View>
     {/* </ImageBackground>    */}
     </Box> 
  
+  );
+};
+
+
+
+//timer life cycle 
+
+
+//timer function component
+const Scheduler = () => {
+  var hours = new Date().getHours(); //To get the Current Hours
+  var minutes = new Date().getMinutes();
+  
+  const HOURS = hours? ( hours > 9 ? "" + hours : "0" + hours) : "00";
+  const MINUTES = minutes?  ( minutes > 9 ? "" + minutes : "0" + minutes) : "00";
+
+  return (
+   <Text> {HOURS} : {MINUTES}</Text>
+
   );
 };

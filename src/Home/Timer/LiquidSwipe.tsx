@@ -115,12 +115,15 @@ export default ({navigation}) => {
   //set the start time and the end time based on the current time
   const Scheduler = () => {
        var hours = new Date().getHours(); //To get the Current Hours
-       var min = new Date().getMinutes();
+       var minutes = new Date().getMinutes();
        
-       console.log(hours);
-       console.log(min)
+       const HOURS = hours? ( hours > 9 ? "" + hours : "0" + hours) : "00";
+       const MINUTES = minutes?  ( minutes > 9 ? "" + minutes : "0" + minutes) : "00";
 
-      //  setTime(time);
+       return (
+        <Text> {HOURS} : {MINUTES}</Text>
+
+       );
   };
 
   //to do
@@ -131,7 +134,7 @@ export default ({navigation}) => {
   return (
    <>
      <Header 
-       // leftComponent={{ icon: 'menu', color: 'white', size:30 }}
+       leftComponent= {<Scheduler />}
         centerComponent={{ text: 'IF TIMER', style: { fontFamily: "Catara" ,fontSize:25 ,color: "white" } }}
        // rightComponent={{ icon: 'home', color: '#fff' }}
         linearGradientProps={{
@@ -171,6 +174,7 @@ export default ({navigation}) => {
             backgroundPic={assets[2]}
             navigation={navigation}
           />
+       
         </Wave>
         <Button y={centerY} {...{ progress }} />
        </Animated.View>
